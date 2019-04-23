@@ -1,0 +1,60 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Logic.Crossers;
+
+import java.awt.image.BufferedImage;
+
+/**
+ *
+ * @author salma
+ */
+public abstract class Plant implements ICrosser {
+    private double weight;
+    private String label;
+    
+    private BufferedImage[] images;
+	
+	public Plant(double weight) {
+		this.weight=weight;
+	}
+    @Override
+    public boolean canSail() {
+        return false;
+    }
+
+    @Override
+    public double getWeight() {
+        return this.weight;
+        
+    }
+
+    @Override
+    public int getEatingRank() {
+       return 1;
+    }
+
+    @Override
+    public BufferedImage[] getImages() {
+        return null;
+       
+    }
+
+    @Override
+    public ICrosser makeCopy() {
+        return null;
+       
+    }
+
+    @Override
+    public void setLabelToBeShown(String label) {
+        this.label=label;
+    }
+
+    @Override
+    public String getLabelToBeShown() {
+        return this.label;
+}
+}
