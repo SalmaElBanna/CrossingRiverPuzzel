@@ -80,7 +80,7 @@ public class Progress {
                 if (g.righttbank.get(i) instanceof Fox) {
                     rightchars.setTextContent("Fox"); 
                 } else if (g.righttbank.get(i) instanceof Cabbage) {
-                    rightchars.setTextContent("Cabbage");
+                    rightchars.setTextContent("Cabage");
                 } else if (g.righttbank.get(i) instanceof Carrots) {
                     rightchars.setTextContent("Carrots");
                 } else if (g.righttbank.get(i) instanceof Farmer) {
@@ -103,7 +103,7 @@ public class Progress {
                 if (g.leftbank.get(i) instanceof Fox) {
                     leftchars.setTextContent("Fox");
                 } else if (g.leftbank.get(i) instanceof Cabbage) {
-                    leftchars.setTextContent("Cabbage");
+                    leftchars.setTextContent("Cabage");
                 } else if (g.leftbank.get(i) instanceof Carrots) {
                     leftchars.setTextContent("Carrots");
                 } else if (g.leftbank.get(i) instanceof Farmer) {
