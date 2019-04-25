@@ -1,15 +1,20 @@
 package Logic.Crossers;
 
 import java.awt.image.BufferedImage;
+import java.util.List;
 
-public abstract class Carnivore implements ICrosser{
+import javafx.scene.image.ImageView;
+
+public abstract class Carnivore implements ICrosser,MoreFunctionalities{
 	
-	public boolean canSail;
-	public int eatingRank;
-	public double weight;
-	public BufferedImage[] images;
-	public String label;
-	ICrosser carnivore;
+	private boolean canSail;
+	private int eatingRank;
+	private double weight;
+	private BufferedImage[] images;
+	private String label;
+	private ICrosser carnivore;
+	
+	private List<ImageView> imageViews;
 	
 	public Carnivore(double weight) {
 		this.weight=weight;
@@ -52,5 +57,19 @@ public abstract class Carnivore implements ICrosser{
     public String getLabelToBeShown() {
         return label;
     }
+    
+	//////Extra Functions than that in Interface///////////////
+	public void setImages(BufferedImage[] images) {
+		this.images = images;
+	}
+	
+	@Override
+	public void setImageViews(List<ImageView> imageViews) {
+		this.imageViews=imageViews;
+	}
+	
+	public List<ImageView> getImageViews() {
+		return imageViews;
+	}
     
 }

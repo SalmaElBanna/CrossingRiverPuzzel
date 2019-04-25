@@ -1,12 +1,18 @@
 package Logic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Logic.Crossers.ICrosser;
 import Logic.Levels.ICrossingStrategy;
 
 public class Receiver implements IRiverCrossingControl {
+	
 	private String errorMessage;
+	private ICrossingStrategy gameStrategy;
+	private List <ICrosser> leftCrossers=new ArrayList<>();
+	private List <ICrosser> rightCrossers=new ArrayList<>();
+	
 	private static Receiver receiver;
 	
 	//make constructor private
@@ -23,49 +29,53 @@ public class Receiver implements IRiverCrossingControl {
 
 	@Override
 	public void newGame(ICrossingStrategy gameStrategy) {
-		// TODO Auto-generated method stub
-		
+		this.gameStrategy=gameStrategy;
+		this.leftCrossers=gameStrategy.getInitialCrossers();
 	}
 
 	@Override
 	public void resetGame() {
-		// TODO Auto-generated method stub
-		
+		this.leftCrossers=gameStrategy.getInitialCrossers();
+		this.rightCrossers.clear();
+		// + set the score to 0
 	}
 
 	@Override
 	public String[] getInstructions() {
-		// TODO Auto-generated method stub
-		return null;
+		return gameStrategy.getInstructions();
 	}
 
 	@Override
 	public List<ICrosser> getCrossersOnRightBank() {
-		// TODO Auto-generated method stub
-		return null;
+		return rightCrossers;
 	}
 
 	@Override
 	public List<ICrosser> getCrossersOnLeftBank() {
-		// TODO Auto-generated method stub
-		return null;
+		return leftCrossers;
 	}
 
 	@Override
 	public boolean isBoatOnLeftBank() {
-		// TODO Auto-generated method stub
+		// dependent on the score (if even: true, otherwise: false)
 		return false;
 	}
 
 	@Override
 	public int getNumOfSails() {
-		// TODO Auto-generated method stub
+		//  dependent on the score
 		return 0;
 	}
+	
+	/**
+	 * crossers: the boat riders
+	 */
 
 	@Override
 	public boolean canMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
-		// TODO Auto-generated method stub
+		if(fromLeftToRightBank) {
+			
+		}
 		return false;
 	}
 
@@ -118,7 +128,6 @@ public class Receiver implements IRiverCrossingControl {
 	}
 	
 	////////////Extra methods than that in IRiverCrossingControlInterface /////////////
-	
 	public void setErrorMessage(String errorMessage) {
 		this.errorMessage = errorMessage;
 	}

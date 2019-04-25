@@ -1,11 +1,17 @@
 package Logic.Crossers;
 
 import java.awt.image.BufferedImage;
+import java.util.List;
 
-public class Person implements ICrosser {
+import javafx.scene.image.ImageView;
+
+public class Person implements ICrosser,MoreFunctionalities {
 	
 	private final double weight;
 	private String label;
+	private BufferedImage [] images;
+	
+	private List<ImageView> imageViews;
 	
 	public Person(double weight) {
 		this.weight=weight;
@@ -29,8 +35,7 @@ public class Person implements ICrosser {
 
 	@Override
 	public BufferedImage[] getImages() {
-		// TODO Auto-generated method stub
-		return null;
+		return images;
 	}
 
 	@Override
@@ -48,6 +53,20 @@ public class Person implements ICrosser {
 	@Override
 	public String getLabelToBeShown() {
 		return this.label;
+	}
+	
+	//////Extra Functions than that in Interface///////////////
+	public void setImages(BufferedImage[] images) {
+		this.images = images;
+	}
+
+	@Override
+	public void setImageViews(List<ImageView> imageViews) {
+		this.imageViews=imageViews;
+	}
+	
+	public List<ImageView> getImageViews() {
+		return imageViews;
 	}
 
 }

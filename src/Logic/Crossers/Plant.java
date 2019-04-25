@@ -6,14 +6,22 @@
 package Logic.Crossers;
 
 import java.awt.image.BufferedImage;
+import java.util.List;
 
-/**
- *
- * @author salma
- */
-public abstract class Plant implements ICrosser {
+import javafx.scene.image.ImageView;
+
+
+public abstract class Plant implements ICrosser,MoreFunctionalities {
+	
     private double weight;
     private String label;
+    private BufferedImage [] images;
+    
+	private List<ImageView> imageViews;
+    
+    public Plant(double weight) {
+		this.weight=weight;
+	}
     @Override
     public boolean canSail() {
         return false;
@@ -32,7 +40,7 @@ public abstract class Plant implements ICrosser {
 
     @Override
     public BufferedImage[] getImages() {
-        return null;
+        return images;
        
     }
 
@@ -51,4 +59,17 @@ public abstract class Plant implements ICrosser {
     public String getLabelToBeShown() {
         return this.label;
 }
+	//////Extra Functions than that in Interface///////////////
+	public void setImages(BufferedImage[] images) {
+		this.images = images;
+	}
+	
+	@Override
+	public void setImageViews(List<ImageView> imageViews) {
+		this.imageViews=imageViews;
+	}
+    
+	public List<ImageView> getImageViews() {
+		return imageViews;
+	}
 }

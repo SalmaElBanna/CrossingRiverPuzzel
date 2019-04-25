@@ -5,7 +5,7 @@ import Logic.Levels.ICrossingStrategy;
 
 public class NewGameCommand implements Command {
 	private Receiver receiver;
-	ICrossingStrategy gameStrategy;
+	private ICrossingStrategy gameStrategy;
 	
 	public NewGameCommand(Receiver receiver,ICrossingStrategy gameStrategy) {
 		this.receiver=receiver;

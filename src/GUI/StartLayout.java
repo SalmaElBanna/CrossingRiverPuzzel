@@ -3,6 +3,7 @@ package GUI;
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -16,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -49,9 +51,18 @@ public class StartLayout implements EventHandler<ActionEvent> {
 		loadBackgroundImage();
 		gc.drawImage(image, 0, 0);
 		
+		//adding label
+		Label label=new Label("River Crossing Puzzle");
+		label.setFont(Font.font(36));
+		label.setTextFill(Color.BLACK);
+		label.setLayoutX(530);
+		label.setLayoutY(200);
+		group.getChildren().add(label);
+		
+		//adding play button
 	    button=new Button("Play");
 		button.setFont(Font.font(20));
-		button.setMinWidth(100);
+		button.setMinWidth(150);
 		button.setMinHeight(50);
 		button.setLayoutX(600);
 		button.setLayoutY(500);
@@ -62,9 +73,8 @@ public class StartLayout implements EventHandler<ActionEvent> {
 	}
 	
 	public void loadBackgroundImage() throws IOException {
-		//BufferedImage bufferedImage = ImageIO.read(new File("D:\\College\\4th term\\Programming II\\Projects\\Project 3\\src\\resources\\background.png"));
-		//this.image=SwingFXUtils.toFXImage(bufferedImage, null);
-		image=new Image("background2.png",screenSize.getWidth(),screenSize.getHeight(),false,false);
+		image=new Image(new FileInputStream("D:\\College\\4th term\\Programming II\\Projects\\Project 3\\src\\resources\\background.png")
+				,screenSize.getWidth(),screenSize.getHeight(),false,false);
 	}
 	
 	public Scene getScene() {

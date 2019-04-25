@@ -21,8 +21,12 @@ extends Application{
 		
 		StartLayout startLayout=new StartLayout(primaryStage,screenSize);
 	    MainMenuLayout mainMenuLayout=new MainMenuLayout(primaryStage,screenSize);
+	    LevelsLayout levelsLayout=new LevelsLayout(primaryStage,screenSize);
+	    GameLayout gameLayout=new GameLayout(primaryStage,screenSize);
 	    
 		startLayout.setMainMenuLayout(mainMenuLayout);
+		mainMenuLayout.setLevelsLayout(levelsLayout);
+		levelsLayout.setGameLayout(gameLayout);
 		
 		primaryStage.setScene(startLayout.getScene());
 		primaryStage.show();

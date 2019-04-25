@@ -1,5 +1,6 @@
 package Logic.Levels;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Logic.Crossers.Cabbage;
@@ -7,11 +8,12 @@ import Logic.Crossers.Farmer;
 import Logic.Crossers.Fox;
 import Logic.Crossers.Goat;
 import Logic.Crossers.ICrosser;
+import Logic.Crossers.Wolf;
 
 public class Story1 implements ICrossingStrategy{
 	
-	private List<ICrosser> initialCrossers;
-	private String [] instructions;
+	private List<ICrosser> initialCrossers=new ArrayList<>();
+	private String [] instructions=new String[5];
 	private String errorMessage;
 	
 	/** Constructor sets initial Crossers of the game (Farmer,herbivore ex:goat,carnivore ex:fox & plant ex:cabbage)
@@ -19,9 +21,9 @@ public class Story1 implements ICrossingStrategy{
 	 */
 	public Story1() {
 		initialCrossers.add(new Goat());
+		initialCrossers.add(new Wolf());
 		initialCrossers.add(new Farmer(70));
 		initialCrossers.add(new Cabbage());
-		initialCrossers.add(new Fox());
 		setInstructions();
 	}
 
@@ -104,7 +106,7 @@ public class Story1 implements ICrossingStrategy{
 		//the first instruction is the story itself
 		instructions[i++]="A farmer wants to cross a river and take with him a carnivorous, a herbivorous and a plant.";
 		//rules
-		instructions[i++]="The Farmer is the only one who can sail the boat\nHe can only take one passenger in addition to himself.";
+		instructions[i++]="The Farmer is the only one who can sail the boat.\n   He can only take one passenger in addition to himself.";
 		instructions[i++]="You can't leave any two crossers on the same bank if one of them can harm the other.";
 		
 	}

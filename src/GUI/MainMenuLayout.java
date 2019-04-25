@@ -3,6 +3,7 @@ package GUI;
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -36,6 +37,9 @@ public class MainMenuLayout {
 	private Scene scene=new Scene(group);
 	private Image image;
 	private Dimension screenSize;
+	
+	//Layouts
+	LevelsLayout levelsLayout;
 	
 	//Buttons
 	private Button newGameButton;
@@ -90,6 +94,14 @@ public class MainMenuLayout {
 	
 	//setting the buttons actions
 	public void setEvents() {
+		newGameButton.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				stage.setScene(levelsLayout.getScene());
+			}
+			
+		});
+		
 		exitButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -112,13 +124,16 @@ public class MainMenuLayout {
 	
 	//load background image
 	public void loadBackgroundImage() throws IOException {
-		//BufferedImage bufferedImage = ImageIO.read(new File("D:\\College\\4th term\\Programming II\\Projects\\Project 3\\src\\resources\\background.png"));
-		//this.image=SwingFXUtils.toFXImage(bufferedImage, null);
-		image=new Image("background2.png",screenSize.getWidth(),screenSize.getHeight(),false,false);
+		image=new Image(new FileInputStream("D:\\College\\4th term\\Programming II\\Projects\\Project 3\\src\\resources\\background.png")
+				,screenSize.getWidth(),screenSize.getHeight(),false,false);
 	}
 	
 	public Scene getScene() {
 		return scene;
+	}
+	
+	public void setLevelsLayout(LevelsLayout levelsLayout) {
+		this.levelsLayout = levelsLayout;
 	}
 
 }
