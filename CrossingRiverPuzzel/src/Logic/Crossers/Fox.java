@@ -5,18 +5,33 @@
  */
 package Logic.Crossers;
 
-import Logic.Crossers.Carnivore;
+
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
-/**
- *
- * @author salma
- */
-public class Fox extends Carnivore{
+import javax.imageio.ImageIO;
 
-    public Fox() {
+public class Fox extends Carnivore {
+
+	private BufferedImage []images=new BufferedImage[3];
+	
+	public Fox() {
 		super(4);
+		try {
+			loadImages();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		super.setImages(images);
+	}
+	
+	public void loadImages() throws IOException {
+		//left image
+		//images[0]= ImageIO.read(new File("D:\\College\\4th term\\Programming II\\Projects\\Project 3\\src\\resources\\Farmers\\Farmer22-left.png"));
+		//right image
+		//images[1]= ImageIO.read(new File("D:\\College\\4th term\\Programming II\\Projects\\Project 3\\src\\resources\\Farmers\\Farmer22-right.png"));
 	}
     
-    
 }
+

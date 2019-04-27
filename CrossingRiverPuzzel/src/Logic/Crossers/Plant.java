@@ -6,16 +6,19 @@
 package Logic.Crossers;
 
 import java.awt.image.BufferedImage;
+import java.util.List;
+import javax.swing.text.html.ImageView;
 
 /**
  *
  * @author salma
  */
-public abstract class Plant implements ICrosser {
+public abstract class Plant implements ICrosser,MoreFunctionalities {
     private double weight;
     private String label;
     
     private BufferedImage[] images;
+    private List<ImageView> imageViews;
 	
 	public Plant(double weight) {
 		this.weight=weight;
@@ -56,5 +59,19 @@ public abstract class Plant implements ICrosser {
     @Override
     public String getLabelToBeShown() {
         return this.label;
-}
+     }
+    
+    //////Extra Functions than that in Interface///////////////
+	public void setImages(BufferedImage[] images) {
+		this.images = images;
+	}
+	
+	@Override
+	public void setImageViews(List<ImageView> imageViews) {
+		this.imageViews=imageViews;
+	}
+    
+	public List<ImageView> getImageViews() {
+		return imageViews;
+	}
 }

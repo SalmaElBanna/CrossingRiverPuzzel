@@ -1,14 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Logic.Commands;
 
-/**
- *
- * @author salma
- */
-public class CanMoveCommand {
-    
+import java.util.List;
+
+import Logic.Receiver;
+import Logic.Crossers.ICrosser;
+
+public class CanMoveCommand implements Command {
+
+	private Receiver receiver;
+	private List<ICrosser> crossers;
+	private boolean fromLeftToRightBank;
+
+	public CanMoveCommand(Receiver receiver,List<ICrosser> crossers, boolean fromLeftToRightBank) {
+		this.receiver=receiver;
+		this.crossers=crossers;
+		this.fromLeftToRightBank=fromLeftToRightBank;
+	}
+	
+	@Override
+	public void execute() {
+		receiver.canMove(crossers, fromLeftToRightBank);
+	}
+
 }

@@ -1,49 +1,42 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Logic.Crossers;
 
 import java.awt.image.BufferedImage;
+import java.util.List;
+import javax.swing.text.html.ImageView;
 
-/**
- *
- * @author salma
- */
-public class Person implements ICrosser {
-     private String label;
+
+
+public class Person implements ICrosser,MoreFunctionalities {
+	
 	private final double weight;
+	private String label;
+	private BufferedImage [] images;
 	
+	private List<ImageView> imageViews;
 	
-            public Person(double weight) {
+	public Person(double weight) {
 		this.weight=weight;
 	}
-    
-    
-    
-    @Override
+
+	@Override
 	public boolean canSail() {
-		// TODO Auto-generated method stub
+		// person can sail
 		return true;
 	}
 
 	@Override
 	public double getWeight() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.weight;
 	}
 
 	@Override
 	public int getEatingRank() {
-		// TODO Auto-generated method stub
-		return 0;
+		return -1;
 	}
 
 	@Override
 	public BufferedImage[] getImages() {
-		// TODO Auto-generated method stub
-		return null;
+		return images;
 	}
 
 	@Override
@@ -54,13 +47,27 @@ public class Person implements ICrosser {
 
 	@Override
 	public void setLabelToBeShown(String label) {
-		// TODO Auto-generated method stub
+		this.label=label;
 
 	}
 
 	@Override
 	public String getLabelToBeShown() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.label;
 	}
+	
+	//////Extra Functions than that in Interface///////////////
+	public void setImages(BufferedImage[] images) {
+		this.images = images;
+	}
+
+	@Override
+	public void setImageViews(List<ImageView> imageViews) {
+		this.imageViews=imageViews;
+	}
+	
+	public List<ImageView> getImageViews() {
+		return imageViews;
+	}
+
 }

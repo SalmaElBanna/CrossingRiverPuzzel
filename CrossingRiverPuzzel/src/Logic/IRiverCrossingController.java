@@ -24,6 +24,12 @@ public void newGame(ICrossingStrategy gameStrategy);
 	public boolean isBoatOnLeftBank();
 	
 	public int getNumOfSails();
+        /**
+	 * @param crossers which the user selected to move
+	 * @param fromLeftToRightBank boolean to inform the controller   
+	 * with the direction of the current game
+	 * @return boolean if it is a valid move or not 
+	 */
 	
 	public boolean canMove(List<ICrosser> crossers,boolean fromLeftToRightBank);
 	
